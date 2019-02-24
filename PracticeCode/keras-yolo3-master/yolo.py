@@ -45,7 +45,7 @@ class YOLO(object):
         self.boxes, self.scores, self.classes = self.generate()
 
     def _get_class(self):
-        classes_path = os.path.expanduser(self.classes_path)  # 扩展当前路径为完整路径
+        classes_path = os.path.expanduser(self._defaults["classes_path"])  # 扩展当前路径为完整路径
         # self._defaults["classes_path"]
         with open(classes_path) as f:
             class_names = f.readlines()
@@ -53,7 +53,7 @@ class YOLO(object):
         return class_names
 
     def _get_anchors(self):
-        anchors_path = os.path.expanduser(self.anchors_path)
+        anchors_path = os.path.expanduser(self._defaults["anchors_path"])
         with open(anchors_path) as f:
             anchors = f.readline()
         anchors = [float(x) for x in anchors.split(',')]
@@ -61,7 +61,7 @@ class YOLO(object):
 
     def generate(self):
 
-        model_path = os.path.expanduser(self.model_path)
+        model_path = os.path.expanduser(self._defaults["model_path"])
 
         '''
 
