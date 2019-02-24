@@ -1,0 +1,11 @@
+font 目录下包含一些字体，核心实现还是在 model_data 和 yolo3 这两个文件夹
+
+model_data 文件夹中包含了coco数据集和voc数据集的相关说明文件，例如对数据集聚类后生成的anchors文件，数据集的类别说明文件，后期需要使用的 yolo 的权重文件也会放在这
+
+yolo3 文件夹中包含了算法实现的核心文件： model.py 和 util.py， model.py 主要实现算法框架，util.py 主要封装一些实现需要的功能
+
+train.py： 使得可以使用自己的数据集进行训练，其中就用到了核心算法
+
+yolo.py 和 yolo_video.py : yolo.py 实现了主要的使用方面的功能，yolo_video.py 是整个项目的使用入口文件，调用了 yolo.py 中的相关函数
+
+yolo_video.py 中需要对行178：做出修改
